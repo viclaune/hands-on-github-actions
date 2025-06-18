@@ -1,0 +1,24 @@
+name: Hello World Workflow
+
+run-name: Hello em Execucao
+
+on: push
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        # Essa action faz um git clone para dentro da máquina ubuntu e executa
+        # os próximos passos do nosso job.
+      
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        # Faz a instalação e configuração do python na máquina ubuntu
+        with:
+          python-version: '3.13' 
+        
+      - name: Executar script Python
+        run: python3 script.py
+        # executando o script.py no ubuntu
