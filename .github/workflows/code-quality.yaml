@@ -17,4 +17,4 @@ jobs:
       - name: Rodar flake8 (linter)
         run: flake8 .
       - name: Rodar black (formatacao)
-        run: black -- check .
+        run: black --check .
