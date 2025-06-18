@@ -10,11 +10,15 @@ jobs:
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
+
       - name: Configurar Python
         uses: actions/setup-python@v5
+      
       - name: Instalar dependencias
         run: pip install -r requirements.txt
+      
       - name: Rodar flake8 (linter)
         run: flake8 .
+      
       - name: Rodar black (formatacao)
         run: black --check .
