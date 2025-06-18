@@ -1,0 +1,20 @@
+name: Code Quality Check
+
+run-name: Code Quality Check em Execucao
+
+on: [push, pull_request]
+
+jobs:
+  code_quality_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+      - name: Rodar flake8 (linter)
+        run: flake8 .
+      - name: Rodar black (formatacao)
+        run: black -- check .
